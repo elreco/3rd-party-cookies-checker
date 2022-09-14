@@ -1,0 +1,16 @@
+<body>
+<script>
+  (function() {
+      if (!window.parent) return;
+      var test = 'test';
+      try {
+          localStorage.setItem(test, test);
+          localStorage.removeItem(test);
+          var msg = '3pc.supported';
+      } catch(e) {
+          var msg = '3pc.unsupported';
+      }
+      window.parent.postMessage(msg, '*');
+  })();
+</script>
+</body>
